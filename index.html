@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inicio space invaders</title>
+<style>
+body{
+	color: GREEN;
+	background-color: black;
+	width:500px;
+	margin:0 auto;
+}
+#juego{
+	text-align:center;
+	background-color: black;
+}
+#juego:hover{
+	background-color: green;
+}
+h1{
+	text-align:center;
+	border: 1px solid green;
+	background-color: black;
+}
+a{
+	color: green;
+	text-decoration: wavy;
+}
+a:hover{
+	color: black;
+	text-decoration: solid;
+}
+#Nombre_Canvas{
+	border:solid 2px green;
+	background:rgb(30, 180, 30);
+}
+</style>
+<script>
+window.onload = function(){
+	var canvas = document.getElementById("Nombre_Canvas");
+	if(canvas && canvas.getContext){
+		var ctx = canvas.getContext("2d");
+		if(ctx){
+            //Creación de tono degradado en grises
+			var gradiente = ctx.createLinearGradient(0,0,0,canvas.height);
+			gradiente.addColorStop(0, "gray");
+			gradiente.addColorStop(0.1, "#000");
+			gradiente.addColorStop(0.9, "#000");
+			gradiente.addColorStop(1, "gray");
+			
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+
+            //Agregar imagen
+			var imagen = new Image();
+			function procesaImagen(){
+				ctx.drawImage(imagen,10,10,150,150);		 
+			}
+			//
+			imagen.src = "arbol.jpg";
+			imagen.onload = function(e){
+				procesaImagen();
+			}
+
+            //Agregar letras
+            //Lineas
+            ctx.lineWidth = 5;
+			ctx.strokeStyle = "green";
+			ctx.fillStyle = "black";
+
+            //Letra D
+            ctx.beginPath();
+			ctx.moveTo(10,170);
+			ctx.lineTo(10,210);
+            ctx.arc(10,190,20,1.5*Math.PI, 2.5*Math.PI);
+			ctx.stroke();
+
+            //Letra I
+            ctx.beginPath();
+			ctx.moveTo(40,170);
+			ctx.lineTo(40,210);
+			ctx.stroke();
+            
+            //Letra E
+            ctx.beginPath();
+			ctx.moveTo(50,170);
+			ctx.lineTo(50,208);
+            ctx.lineTo(70,208);
+            ctx.lineTo(50,208);
+            ctx.lineTo(50,190);
+            ctx.lineTo(70,190);
+            ctx.lineTo(50,190);
+            ctx.lineTo(50,172);
+            ctx.lineTo(70,172);
+			ctx.stroke();
+
+            //Letra G
+            ctx.beginPath();
+			ctx.moveTo(100,172);
+			ctx.lineTo(80,172);
+            ctx.lineTo(80,208);
+            ctx.lineTo(98,208);
+            ctx.lineTo(98,190);
+            ctx.lineTo(90,190);
+			ctx.stroke();
+
+            //Letra O
+            ctx.beginPath();
+            ctx.arc(125,190,20, 0, 2 * Math.PI);
+			ctx.stroke();
+
+            //Letra I
+            ctx.beginPath();
+			ctx.moveTo(10,220);
+			ctx.lineTo(10,260);
+			ctx.stroke();
+
+            //Letra N
+            ctx.beginPath();
+            ctx.lineJoin = "bevel";
+			ctx.moveTo(20,260);
+			ctx.lineTo(20,220);
+            ctx.lineTo(40,260);
+            ctx.lineTo(40,220);
+			ctx.stroke();
+
+            //Letra S
+            ctx.beginPath();
+            ctx.moveTo(71,222);
+            ctx.lineTo(50,222);
+            ctx.lineTo(50,240);
+            ctx.lineTo(70,240);
+            ctx.lineTo(70,258);
+            ctx.lineTo(49,258);
+			ctx.stroke();
+
+            //Letra U
+            ctx.beginPath();
+			ctx.moveTo(80,220);
+			ctx.lineTo(80,258);
+            ctx.lineTo(98,258);
+            ctx.lineTo(98,220);
+			ctx.stroke();
+
+			//Letra A
+            ctx.beginPath();
+			ctx.moveTo(110,260);
+			ctx.lineTo(120,220);
+            ctx.lineTo(130,260);
+            ctx.lineTo(125,240);
+			ctx.lineTo(115,240);
+			ctx.stroke();
+
+			//Letra S
+            ctx.beginPath();
+            ctx.moveTo(162,222);
+            ctx.lineTo(140,222);
+            ctx.lineTo(140,240);
+            ctx.lineTo(161,240);
+            ctx.lineTo(161,258);
+            ctx.lineTo(139,258);
+			ctx.stroke();
+
+			//Letra T
+            ctx.beginPath();
+			ctx.moveTo(170,222);
+			ctx.lineTo(200,222);
+			ctx.lineTo(185,222);
+			ctx.lineTo(185,260);
+			ctx.stroke();
+
+			//Letra Y
+            ctx.beginPath();
+			ctx.moveTo(210,220);
+			ctx.lineTo(220,242);
+			ctx.lineTo(220,260);
+			ctx.lineTo(220,242);
+			ctx.lineTo(230,220);
+			ctx.stroke();
+
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<h1>SPACE INVADERS</h1>
+<canvas id="Nombre_Canvas" width="500px" height="300px">
+Tu navegador no soporta CANVAS
+</canvas>
+<a href="space.html"><h1 id="juego">JUEGA AQUI</h1></a>
+</body>
+</html>
